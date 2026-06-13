@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknosa Yönetici/Admin Paneli. İstatistikler, kullanıcılar, destek biletleri, siparişler ve ürün yönetimi.">
+    <title>Yönetici Paneli | Teknosa Ders Projesi</title>
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+
+    <!-- 1. SABİT ÜST UYARI ALANI (20px) -->
+    <div class="top-warning-banner" id="top-warning">
+        Bu site Web Tasarım dersi kapsamında yapılmıştır ve sitedeki bilgilerin geçerliliği yoktur.
+    </div>
+
+    <div class="page-wrapper">
+        <!-- 2. HEADER / MENÜ ALANI -->
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="index.html" class="logo" id="logo-link">
+                    <svg viewBox="0 0 160 35" class="logo-icon" style="width: 140px; height: 35px;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24"
+                            fill="#002554">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                </a>
+
+                <nav class="main-navigation" aria-label="Ana Menü">
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" id="nav-home">Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html" class="nav-link" id="nav-about">Hakkımızda</a></li>
+                        <li><a href="urunler.html" class="nav-link" id="nav-products">Ürünler / Hizmetler</a></li>
+                        <li><a href="kurumsal.html" class="nav-link" id="nav-corporate">Kurumsal</a></li>
+                        <li><a href="iletisim.html" class="nav-link" id="nav-contact">İletişim</a></li>
+                        <li id="auth-nav-item"></li>
+                        <li class="cart-btn-wrapper">
+                            <a href="#" class="nav-link" id="cart-toggle-btn" aria-label="Alışveriş Sepeti">
+                                <svg viewBox="0 0 24 24"
+                                    style="width: 20px; height: 20px; fill: currentColor; vertical-align: middle;">
+                                    <path
+                                        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                                </svg>
+                                <span class="cart-badge" id="cart-badge-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="hamburger" aria-label="Menüyü Aç/Kapat" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 3. HERO / SAYFA BAŞLIK ALANI -->
+            <section class="sub-hero" id="admin-hero" style="background: linear-gradient(135deg, var(--secondary) 0%, #061f3d 100%);">
+                <div class="container">
+                    <h1>Yönetici Kontrol Paneli</h1>
+                    <nav class="breadcrumb" aria-label="Navigasyon Yolu">
+                        <a href="index.html">Ana Sayfa</a>
+                        <span>&gt;</span>
+                        <a href="admin.html" style="color: var(--primary);">Yönetim Paneli</a>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- 4. ADMİN PANEL DÜZENİ -->
+            <section class="section" id="admin-section">
+                <div class="container">
+                    <div class="profile-layout">
+                        <!-- Sol Sekme Menüsü -->
+                        <aside class="profile-sidebar" aria-label="Yönetici Menüsü">
+                            <div class="profile-user-summary">
+                                <div class="profile-avatar" style="background-color: var(--primary); color: #fff;">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                                    </svg>
+                                </div>
+                                <h3>Teknosa Admin</h3>
+                                <p id="admin-user-email">admin@teknosa.com</p>
+                            </div>
+                            <nav class="profile-tab-list">
+                                <button class="profile-tab-btn active" data-tab="adm-dashboard">
+                                    <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                                    Genel Özet (Dashboard)
+                                </button>
+                                <button class="profile-tab-btn" data-tab="adm-users">
+                                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                                    Toplam Kullanıcılar
+                                </button>
+                                <button class="profile-tab-btn" data-tab="adm-orders">
+                                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                                    Sipariş Yönetimi
+                                </button>
+                                <button class="profile-tab-btn" data-tab="adm-tickets">
+                                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                                    Destek Mesajları
+                                </button>
+                                <button class="profile-tab-btn" data-tab="adm-products">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                                    Ürün Ayarları
+                                </button>
+                            </nav>
+                        </aside>
+
+                        <!-- Sağ Sekme İçerikleri -->
+                        <div class="profile-content">
+                            
+                            <!-- 1. Dashboard Tab -->
+                            <div class="profile-tab-content active" id="adm-dashboard">
+                                <h3>Genel Özet & İstatistikler</h3>
+                                <p class="tab-desc">Sistemdeki genel kullanıcı, satış ve mesaj durumlarını izleyin.</p>
+                                
+                                <div class="admin-dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+                                    <div class="dashboard-stat-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                                        <div class="stat-icon" style="background-color: var(--primary-light); color: var(--primary); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👤</div>
+                                        <div>
+                                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; font-weight: 500;">Toplam Kullanıcı</span>
+                                            <strong id="stat-total-users" style="font-size: 1.5rem; color: var(--secondary); font-weight: 800;">0</strong>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-stat-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                                        <div class="stat-icon" style="background-color: #e8f8f0; color: #2ecc71; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">📦</div>
+                                        <div>
+                                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; font-weight: 500;">Toplam Sipariş</span>
+                                            <strong id="stat-total-orders" style="font-size: 1.5rem; color: var(--secondary); font-weight: 800;">0</strong>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-stat-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                                        <div class="stat-icon" style="background-color: #ebf3fc; color: #3498db; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">💸</div>
+                                        <div>
+                                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; font-weight: 500;">Toplam Satış Tutarı</span>
+                                            <strong id="stat-total-revenue" style="font-size: 1.5rem; color: var(--secondary); font-weight: 800;">0 TL</strong>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-stat-card" style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                                        <div class="stat-icon" style="background-color: #fff9e6; color: #f1c40f; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">💬</div>
+                                        <div>
+                                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; font-weight: 500;">Bekleyen Biletler</span>
+                                            <strong id="stat-pending-tickets" style="font-size: 1.5rem; color: var(--secondary); font-weight: 800;">0</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background-color: var(--section-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 2rem;">
+                                    <h4 style="font-weight:700; color:var(--secondary); margin-bottom:0.5rem;">Yönetici Bilgilendirmesi</h4>
+                                    <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.5;">Bu kontrol panelinden sistemdeki dinamik verileri canlı olarak görebilirsiniz. Kullanıcıların sipariş durumlarını değiştirerek anlık bildirim almalarını sağlayabilir, destek mesajlarına cevap vererek müşteri memnuniyetini simüle edebilirsiniz. Tüm işlemler <strong>local veritabanı</strong> ile tam entegre çalışmaktadır.</p>
+                                </div>
+                            </div>
+
+                            <!-- 2. Users Tab -->
+                            <div class="profile-tab-content" id="adm-users">
+                                <h3>Kayıtlı Tüm Kullanıcılar</h3>
+                                <p class="tab-desc">Sistemde üyeliği bulunan kullanıcıların listesi ve yetki düzeyleri.</p>
+                                
+                                <div style="overflow-x: auto;">
+                                    <table class="admin-table" style="width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: var(--card-bg);">
+                                        <thead>
+                                            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--secondary); font-weight: 700; font-size: 0.9rem;">
+                                                <th style="padding: 12px 8px;">Adı Soyadı</th>
+                                                <th style="padding: 12px 8px;">E-Posta Adresi</th>
+                                                <th style="padding: 12px 8px;">Kullanıcı Rolü</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-users-list">
+                                            <!-- Dinamik kullanıcı listesi -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- 3. Orders Tab -->
+                            <div class="profile-tab-content" id="adm-orders">
+                                <h3>Sipariş Yönetimi</h3>
+                                <p class="tab-desc">Kullanıcıların verdiği siparişlerin listesi ve durum güncellemeleri.</p>
+                                
+                                <div style="overflow-x: auto;">
+                                    <table class="admin-table" style="width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: var(--card-bg);">
+                                        <thead>
+                                            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--secondary); font-weight: 700; font-size: 0.9rem;">
+                                                <th style="padding: 12px 8px;">Sipariş No</th>
+                                                <th style="padding: 12px 8px;">Kullanıcı</th>
+                                                <th style="padding: 12px 8px;">Tarih</th>
+                                                <th style="padding: 12px 8px;">Tutar</th>
+                                                <th style="padding: 12px 8px;">Sipariş Durumu</th>
+                                                <th style="padding: 12px 8px; text-align: center;">Detay / Güncelle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-orders-list">
+                                            <!-- Dinamik sipariş listesi -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- 4. Support Tickets Tab -->
+                            <div class="profile-tab-content" id="adm-tickets">
+                                <h3>Müşteri Destek Talepleri</h3>
+                                <p class="tab-desc">Kullanıcılardan gelen destek ve iletişim mesajlarını inceleyip yanıtlayın.</p>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;" id="admin-tickets-container">
+                                    <!-- Dinamik destek mesajları -->
+                                </div>
+                            </div>
+
+                            <!-- 5. Product Management Tab -->
+                            <div class="profile-tab-content" id="adm-products">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                                    <div>
+                                        <h3>Ürün Ayarları & Kataloğu</h3>
+                                        <p class="tab-desc" style="margin-bottom: 0;">Sitedeki ürünleri listeleyin, yeni ürünler ekleyin veya güncelleyin.</p>
+                                    </div>
+                                    <button class="btn btn-primary" id="btn-admin-add-product" style="padding: 0.6rem 1.2rem;">+ Yeni Ürün Ekle</button>
+                                </div>
+                                
+                                <div style="overflow-x: auto;">
+                                    <table class="admin-table" style="width: 100%; border-collapse: collapse; background-color: var(--card-bg);">
+                                        <thead>
+                                            <tr style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--secondary); font-weight: 700; font-size: 0.9rem;">
+                                                <th style="padding: 12px 8px; width: 60px;">Görsel</th>
+                                                <th style="padding: 12px 8px;">Ürün Adı</th>
+                                                <th style="padding: 12px 8px;">Kategori</th>
+                                                <th style="padding: 12px 8px;">Fiyat (TL)</th>
+                                                <th style="padding: 12px 8px; text-align: center;">İşlemler</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-products-list">
+                                            <!-- Dinamik ürün listesi -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 5. FOOTER ALANI -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <!-- Sütun 1: Marka ve Sosyal Medya -->
+                <div class="footer-column footer-brand" id="footer-col-brand">
+                    <svg viewBox="0 0 160 35" class="logo-icon"
+                        style="width: 130px; height: 35px; margin-bottom: 1rem;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24"
+                            fill="#FFFFFF">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                    <p class="footer-desc">Teknosa, Türkiye'nin lider teknoloji perakendecisi olarak en yeni elektronik
+                        ürünleri güler yüzlü hizmet ve benzersiz müşteri deneyimiyle sunmaktadır.</p>
+                </div>
+
+                <!-- Sütun 2: Hızlı Linkler -->
+                <div class="footer-column footer-links" id="footer-col-links">
+                    <h3>Hızlı Linkler</h3>
+                    <a href="index.html" id="foot-link-home">Ana Sayfa</a>
+                    <a href="hakkimizda.html" id="foot-link-about">Hakkımızda</a>
+                    <a href="urunler.html" id="foot-link-products">Ürünler / Hizmetler</a>
+                    <a href="kurumsal.html" id="foot-link-corporate">Kurumsal</a>
+                    <a href="iletisim.html" id="foot-link-contact">İletişim</a>
+                </div>
+
+                <!-- Sütun 3: Kategoriler -->
+                <div class="footer-column footer-links" id="footer-col-cats">
+                    <h3>Kategoriler</h3>
+                    <a href="urunler.html#category=telefon" id="foot-cat-phones">Telefon & Aksesuar</a>
+                    <a href="urunler.html#category=bilgisayar" id="foot-cat-laptops">Bilgisayar & Oyun</a>
+                    <a href="urunler.html#category=tv-ses" id="foot-cat-tvs">TV & Görüntüleme</a>
+                    <a href="urunler.html#category=beyaz-esya" id="foot-cat-appliances">Beyaz Eşya & Ev</a>
+                </div>
+
+                <!-- Sütun 4: İletişim Bilgileri -->
+                <div class="footer-column footer-contact" id="footer-col-contact">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="contact-item" id="foot-contact-phone">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        <span>0850 222 55 99</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alt Bilgi ve Copyright -->
+            <div class="container footer-bottom">
+                <p>&copy; 2026 Teknosa. Tüm hakları saklıdır. Bu site eğitim amaçlı bir ders projesidir.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 🛒 Alışveriş Sepeti Çekmecesi -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>Alışveriş Sepetim</h3>
+                <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Sepeti Kapat">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="cart-items-container" id="cart-items-container">
+                <!-- Dinamik sepet -->
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="cart-total-row">
+                    <span>Toplam:</span>
+                    <span class="cart-total-price" id="cart-total-price">0 TL</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" id="checkout-btn">Alışverişi Tamamla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔍 Ürün Detay Modalı -->
+    <div class="modal-overlay" id="product-detail-modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; padding: 2.5rem; position: relative;">
+            <button class="cart-drawer-close" id="product-detail-close-btn"
+                style="position: absolute; top: 15px; right: 15px;" aria-label="Kapat">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </button>
+            <div id="product-detail-content">
+                <!-- Dinamik içerik -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 📦 Ürün Ekle/Düzenle Modalı (Admin Modalı) -->
+    <div class="modal-overlay" id="admin-product-modal">
+        <div class="modal-content" style="max-width: 650px; width: 90%; padding: 2.5rem; position: relative;">
+            <button class="cart-drawer-close" id="admin-product-modal-close" style="position: absolute; top: 15px; right: 15px;" aria-label="Kapat">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            <h3 id="admin-modal-title" style="color:var(--secondary); font-size:1.35rem; font-weight:700; margin-bottom:1rem; border-bottom:2px solid var(--border-color); padding-bottom:5px;">Yeni Ürün Ekle</h3>
+            
+            <form id="admin-product-form" novalidate>
+                <input type="hidden" id="prod-form-id">
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="prod-name">Ürün Adı</label>
+                        <input type="text" id="prod-name" placeholder="Örn: Apple iPhone 15 Pro" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        <span class="form-error">Ürün adı boş bırakılamaz.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-brand">Marka</label>
+                        <input type="text" id="prod-brand" placeholder="Örn: Apple" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        <span class="form-error">Marka boş bırakılamaz.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-category">Kategori</label>
+                        <select id="prod-category" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background-color: #fff;">
+                            <option value="telefon">Telefon & Aksesuar</option>
+                            <option value="bilgisayar">Bilgisayar & Oyun</option>
+                            <option value="tv-ses">TV & Görüntüleme</option>
+                            <option value="beyaz-esya">Beyaz Eşya & Ev</option>
+                            <option value="kisisel-bakim">Kişisel Bakım & Sağlık</option>
+                            <option value="ev-aletleri">Elektrikli Ev Aletleri</option>
+                            <option value="hobi-oyun">Konsol & Hobi Oyun</option>
+                            <option value="aksesuar">Giyilebilir & Aksesuar</option>
+                            <option value="foto-kamera">Fotoğraf & Kamera</option>
+                            <option value="ofis-kirtasiye">Ofis & Yazıcılar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-price-orig">Eski Fiyat (TL)</label>
+                        <input type="number" id="prod-price-orig" placeholder="Örn: 84999" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        <span class="form-error">Geçerli bir fiyat giriniz.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-price-curr">Güncel Satış Fiyatı (TL)</label>
+                        <input type="number" id="prod-price-curr" placeholder="Örn: 79999" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        <span class="form-error">Geçerli bir satış fiyatı giriniz.</span>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="prod-img">Görsel Bağlantısı (URL)</label>
+                        <input type="text" id="prod-img" placeholder="https://images.unsplash.com/photo-..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        <span class="form-error">Görsel URL boş bırakılamaz.</span>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label for="prod-desc">Ürün Açıklaması</label>
+                        <textarea id="prod-desc" rows="2" placeholder="Ürün hakkında kısa açıklama..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;"></textarea>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <h5 style="font-weight: 700; margin-bottom: 0.35rem; color: var(--secondary);">Teknik Özellikler (specs)</h5>
+                        <div style="display:grid; grid-template-columns: 1fr 1.5fr; gap:0.5rem; margin-bottom: 0.5rem;">
+                            <input type="text" id="spec-key-1" placeholder="Özellik Adı (Örn: İşlemci)" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            <input type="text" id="spec-val-1" placeholder="Değeri (Örn: Apple A17 Pro)" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            
+                            <input type="text" id="spec-key-2" placeholder="Örn: Ekran Boyutu" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            <input type="text" id="spec-val-2" placeholder="Örn: 6.1 inç OLED" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+
+                            <input type="text" id="spec-key-3" placeholder="Örn: RAM" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            <input type="text" id="spec-val-3" placeholder="Örn: 8 GB" style="padding: 0.4rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="btn-save-admin-product">Ürünü Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 💬 Toast Bildirim Alanı -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- JS Dosyaları -->
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

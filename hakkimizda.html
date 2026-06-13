@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknosa Hakkımızda Sayfası. Kuruluşumuz, değerlerimiz, kilometre taşlarımız ve Türkiye genelindeki teknoloji liderliğimiz.">
+    <title>Hakkımızda | Teknosa Ders Projesi</title>
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+    <!-- 1. SABİT ÜST UYARI ALANI (20px) -->
+    <div class="top-warning-banner" id="top-warning">
+        Bu site Web Tasarım dersi kapsamında yapılmıştır ve sitedeki bilgilerin geçerliliği yoktur.
+    </div>
+
+    <div class="page-wrapper">
+        <!-- 2. HEADER / MENÜ ALANI -->
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="index.html" class="logo" id="logo-link">
+                    <svg viewBox="0 0 160 35" class="logo-icon" style="width: 140px; height: 35px;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" fill="#002554">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                </a>
+                
+                <nav class="main-navigation" aria-label="Ana Menü">
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" id="nav-home">Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html" class="nav-link active" id="nav-about">Hakkımızda</a></li>
+                        <li><a href="urunler.html" class="nav-link" id="nav-products">Ürünler / Hizmetler</a></li>
+                        <li><a href="kurumsal.html" class="nav-link" id="nav-corporate">Kurumsal</a></li>
+                        <li><a href="iletisim.html" class="nav-link" id="nav-contact">İletişim</a></li>
+                        <li id="auth-nav-item"></li>
+                        <li class="cart-btn-wrapper">
+                            <a href="#" class="nav-link" id="cart-toggle-btn" aria-label="Alışveriş Sepeti">
+                                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor; vertical-align: middle;">
+                                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                                </svg>
+                                <span class="cart-badge" id="cart-badge-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="hamburger" aria-label="Menüyü Aç/Kapat" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 3. HERO / SAYFA BAŞLIK ALANI (Alt Sayfa Bannerı) -->
+            <section class="sub-hero" id="about-hero">
+                <div class="container">
+                    <h1>Hakkımızda</h1>
+                    <nav class="breadcrumb" aria-label="Navigasyon Yolu">
+                        <a href="index.html">Ana Sayfa</a>
+                        <span>&gt;</span>
+                        <a href="hakkimizda.html" style="color: var(--primary);">Hakkımızda</a>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- 4. ANA İÇERİK ALANI -->
+            <!-- Biz Kimiz Detayları -->
+            <section class="section" id="about-content-section">
+                <div class="container">
+                    <div class="grid-2col">
+                        <div class="about-content" id="about-text-block">
+                            <h2>Türkiye'nin Teknoloji Perakendecisi</h2>
+                            <p>Teknosa İç ve Dış Ticaret A.Ş., 2000 yılında Hacı Ömer Sabancı Holding A.Ş. bünyesinde kurulmuş, Türkiye genelinde teknoloji ürünleri satışı, dağıtımı ve satış sonrası teknik destek hizmetleri sunan lider bir perakende zinciridir.</p>
+                            <p>Kuruluşumuzdan bu yana "Herkes İçin Teknoloji" felsefesiyle yola çıkarak, teknolojiye dair tüm ihtiyaçları tek bir çatı altında toplamayı ve müşterilerimize en konforlu alışveriş deneyimini sunmayı hedefledik. Türkiye genelinde yaygın mağaza ağımız, mobil uygulamamız ve teknosa.com online pazar yerimiz ile müşterilerimize her kanaldan (omni-channel) ulaşıyoruz.</p>
+                            <p>Sabancı topluluğunun bir parçası olarak, yenilikçi vizyonumuz, güçlü insan kaynağımız ve müşteri odaklı hizmet kalitemizle Türkiye'de dijital dönüşümün ve perakende sektörünün öncüsü olmaya devam ediyoruz.</p>
+                        </div>
+                        <div class="about-image" id="about-img-block">
+                            <img src="https://images.unsplash.com/photo-1542744094-3a31f103e35f?w=600&q=80" alt="Teknosa Ekip ve Vizyon" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kilometre Taşları / Tarihçe Kronolojisi -->
+            <section class="section section-bg" id="timeline-section">
+                <div class="container">
+                    <h2 class="section-title">Yolculuğumuz</h2>
+                    
+                    <div class="timeline" id="history-timeline">
+                        <!-- Dönemeç 1 -->
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <div class="timeline-date">2000</div>
+                                <h3>Kuruluş ve İlk Adımlar</h3>
+                                <p>Teknosa, Sabancı Holding bünyesinde 5 mağaza ile faaliyetlerine başladı. Sektörde modern teknoloji perakendeciliğinin ilk temelleri atıldı.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dönemeç 2 -->
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <div class="timeline-date">2005</div>
+                                <h3>E-Ticarette Öncülük</h3>
+                                <p>teknosa.com online alışveriş sitesi yayına girdi. Fiziksel mağazacılığın yanında dijital kanallarda da Türkiye'nin teknoloji adresine dönüşme adımları hızlandı.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dönemeç 3 -->
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <div class="timeline-date">2012</div>
+                                <h3>Halka Arz ve Büyüme</h3>
+                                <p>Teknosa hisseleri Borsa İstanbul'da işlem görmeye başladı. Kurumsal kimlik, şeffaflık ve büyüme hedeflerinde yeni bir döneme geçildi.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dönemeç 4 -->
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <div class="timeline-date">2020</div>
+                                <h3>Yeni Nesil Mağazacılık</h3>
+                                <p>Müşteri deneyimini odağa alan, dijital entegrasyona sahip yeni konsept mağaza tasarımları hayata geçirildi. Çoklu kanal (Omni-channel) altyapısı yenilendi.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dönemeç 5 -->
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <div class="timeline-date">2026</div>
+                                <h3>Geleceğin Teknosa'sı</h3>
+                                <p>Türkiye genelinde 100'ü aşkın mağazamız, yenilikçi Teknoloji Destek hizmetlerimiz ve online pazar yerimiz ile sektör liderliğimizi sürdürüyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- İstatistik Bölümü -->
+            <section class="stats-section" id="stats-section">
+                <div class="container stats-grid">
+                    <div class="stat-item" id="stat-stores">
+                        <svg viewBox="0 0 24 24" class="stat-icon"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
+                        <span class="stat-number" data-target="100" data-suffix="+">0</span>
+                        <span class="stat-label">Teknosa Mağazası</span>
+                    </div>
+                    <div class="stat-item" id="stat-customers">
+                        <svg viewBox="0 0 24 24" class="stat-icon"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="stat-number" data-target="20" data-suffix="M+">0</span>
+                        <span class="stat-label">Mutlu Müşteri</span>
+                    </div>
+                    <div class="stat-item" id="stat-employees">
+                        <svg viewBox="0 0 24 24" class="stat-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <span class="stat-number" data-target="3000" data-suffix="+">0</span>
+                        <span class="stat-label">Uzman Çalışan</span>
+                    </div>
+                    <div class="stat-item" id="stat-experience">
+                        <svg viewBox="0 0 24 24" class="stat-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        <span class="stat-number" data-target="25" data-suffix="">0</span>
+                        <span class="stat-label">Yıllık Deneyim</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 5. FOOTER ALANI -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <!-- Sütun 1: Marka -->
+                <div class="footer-column footer-brand" id="footer-col-brand">
+                    <svg viewBox="0 0 160 35" class="logo-icon" style="width: 130px; height: 35px; margin-bottom: 1rem;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                    <p class="footer-desc">Teknosa, Türkiye'nin lider teknoloji perakendecisi olarak en yeni elektronik ürünleri güler yüzlü hizmet ve benzersiz müşteri deneyimiyle sunmaktadır.</p>
+                    <div class="footer-socials">
+                        <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </a>
+                        <a href="https://twitter.com" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sütun 2: Linkler -->
+                <div class="footer-column footer-links" id="footer-col-links">
+                    <h3>Hızlı Linkler</h3>
+                    <a href="index.html" id="foot-link-home">Ana Sayfa</a>
+                    <a href="hakkimizda.html" id="foot-link-about">Hakkımızda</a>
+                    <a href="urunler.html" id="foot-link-products">Ürünler / Hizmetler</a>
+                    <a href="kurumsal.html" id="foot-link-corporate">Kurumsal</a>
+                    <a href="iletisim.html" id="foot-link-contact">İletişim</a>
+                </div>
+
+                <!-- Sütun 3: Kategoriler -->
+                <div class="footer-column footer-links" id="footer-col-cats">
+                    <h3>Kategoriler</h3>
+                    <a href="urunler.html#category=telefon" id="foot-cat-phones">Telefon & Aksesuar</a>
+                    <a href="urunler.html#category=bilgisayar" id="foot-cat-laptops">Bilgisayar & Oyun</a>
+                    <a href="urunler.html#category=tv-ses" id="foot-cat-tvs">TV & Görüntüleme</a>
+                    <a href="urunler.html#category=beyaz-esya" id="foot-cat-appliances">Beyaz Eşya & Ev</a>
+                </div>
+
+                <!-- Sütun 4: İletişim -->
+                <div class="footer-column footer-contact" id="footer-col-contact">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="contact-item" id="foot-contact-phone">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span>0850 222 55 99</span>
+                    </div>
+                    <div class="contact-item" id="foot-contact-email">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>info@teknosa.com</span>
+                    </div>
+                    <div class="contact-item" id="foot-contact-address">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Teknosa Plaza, CarrefourSA Sitesi, İçerenköy, Ataşehir / İstanbul</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container footer-bottom">
+                <p>&copy; 2026 Teknosa. Tüm hakları saklıdır. Bu site eğitim amaçlı bir ders projesidir.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" id="foot-privacy">Gizlilik Politikası</a>
+                    <a href="#" id="foot-terms">Kullanım Koşulları</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 🛒 Alışveriş Sepeti Çekmecesi (Cart Drawer) -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>Alışveriş Sepetim</h3>
+                <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Sepeti Kapat">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="cart-items-container" id="cart-items-container">
+                <!-- Dinamik olarak JS tarafından doldurulacak -->
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="cart-total-row">
+                    <span>Toplam:</span>
+                    <span class="cart-total-price" id="cart-total-price">0 TL</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" id="checkout-btn">Alışverişi Tamamla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔍 Ürün Detay Modalı (Product Detail Modal) -->
+    <div class="modal-overlay" id="product-detail-modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; padding: 2.5rem; position: relative;">
+            <button class="cart-drawer-close" id="product-detail-close-btn" style="position: absolute; top: 15px; right: 15px;" aria-label="Kapat">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            <div id="product-detail-content">
+                <!-- Dinamik olarak doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 💬 Toast Bildirim Alanı (Toast Notifications Container) -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- JS Dosyaları -->
+    <script src="js/main.js"></script>
+</body>
+</html>

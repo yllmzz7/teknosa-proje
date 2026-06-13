@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknosa Kullanıcı Profili. Siparişleriniz, kayıtlı adresleriniz, ödeme yöntemleriniz ve hesap ayarlarınız.">
+    <title>Profilim | Teknosa Ders Projesi</title>
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+
+    <!-- 1. SABİT ÜST UYARI ALANI (20px) -->
+    <div class="top-warning-banner" id="top-warning">
+        Bu site Web Tasarım dersi kapsamında yapılmıştır ve sitedeki bilgilerin geçerliliği yoktur.
+    </div>
+
+    <div class="page-wrapper">
+        <!-- 2. HEADER / MENÜ ALANI -->
+        <header class="main-header">
+            <div class="container header-container">
+                <a href="index.html" class="logo" id="logo-link">
+                    <svg viewBox="0 0 160 35" class="logo-icon" style="width: 140px; height: 35px;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24"
+                            fill="#002554">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                </a>
+
+                <nav class="main-navigation" aria-label="Ana Menü">
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" id="nav-home">Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html" class="nav-link" id="nav-about">Hakkımızda</a></li>
+                        <li><a href="urunler.html" class="nav-link" id="nav-products">Ürünler / Hizmetler</a></li>
+                        <li><a href="kurumsal.html" class="nav-link" id="nav-corporate">Kurumsal</a></li>
+                        <li><a href="iletisim.html" class="nav-link" id="nav-contact">İletişim</a></li>
+                        <li id="auth-nav-item"></li>
+                        <li class="cart-btn-wrapper">
+                            <a href="#" class="nav-link" id="cart-toggle-btn" aria-label="Alışveriş Sepeti">
+                                <svg viewBox="0 0 24 24"
+                                    style="width: 20px; height: 20px; fill: currentColor; vertical-align: middle;">
+                                    <path
+                                        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                                </svg>
+                                <span class="cart-badge" id="cart-badge-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <button class="hamburger" aria-label="Menüyü Aç/Kapat" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 3. HERO / SAYFA BAŞLIK ALANI (Alt Sayfa Bannerı) -->
+            <section class="sub-hero" id="profile-hero">
+                <div class="container">
+                    <h1>Profilim / Hesabım</h1>
+                    <nav class="breadcrumb" aria-label="Navigasyon Yolu">
+                        <a href="index.html">Ana Sayfa</a>
+                        <span>&gt;</span>
+                        <a href="profil.html" style="color: var(--primary);">Profil Ayarları</a>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- 4. PROFİL DÜZENİ -->
+            <section class="section" id="profile-section">
+                <div class="container">
+                    <div class="profile-layout">
+                        <!-- Sol Sekme Navigasyonu -->
+                        <aside class="profile-sidebar" aria-label="Profil Menüsü">
+                            <div class="profile-user-summary">
+                                <div class="profile-avatar">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                </div>
+                                <h3 id="sidebar-user-name">Kullanıcı Adı</h3>
+                                <p id="sidebar-user-email">email@teknosa.com</p>
+                            </div>
+                            <nav class="profile-tab-list">
+                                <button class="profile-tab-btn active" data-tab="tab-settings">
+                                    <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                                    Profil Ayarları
+                                </button>
+                                <button class="profile-tab-btn" data-tab="tab-orders">
+                                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                                    Önceki Siparişler
+                                </button>
+                                <button class="profile-tab-btn" data-tab="tab-cards">
+                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                                    Kart Ayarları
+                                </button>
+                                <button class="profile-tab-btn" data-tab="tab-addresses">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                    Kayıtlı Adreslerim
+                                </button>
+                                <button class="profile-tab-btn" data-tab="tab-contact">
+                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                    İletişim / Destek
+                                </button>
+                            </nav>
+                        </aside>
+
+                        <!-- Sağ Sekme İçeriği -->
+                        <div class="profile-content">
+                            <!-- 1. Profil Ayarları Sekmesi -->
+                            <div class="profile-tab-content active" id="tab-settings">
+                                <h3>Profil Ayarları</h3>
+                                <p class="tab-desc">Kişisel bilgilerinizi güncelleyebilir veya yeni bir şifre belirleyebilirsiniz.</p>
+                                
+                                <form id="profile-info-form" style="margin-bottom: 2rem;" novalidate>
+                                    <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="profile-name">Adınız Soyadınız</label>
+                                            <input type="text" id="profile-name" placeholder="Ad Soyad">
+                                            <span class="form-error">Bu alan boş bırakılamaz.</span>
+                                        </div>
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="profile-email">E-posta Adresiniz</label>
+                                            <input type="email" id="profile-email" disabled style="background-color: var(--border-color); cursor: not-allowed;">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Bilgilerimi Güncelle</button>
+                                </form>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                                <h3>Şifre Değiştir</h3>
+                                <form id="profile-password-form" novalidate>
+                                    <div class="form-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                                        <div class="form-group">
+                                            <label for="profile-current-password">Mevcut Şifre</label>
+                                            <input type="password" id="profile-current-password" placeholder="Mevcut şifrenizi girin">
+                                            <span class="form-error">Mevcut şifrenizi giriniz.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-new-password">Yeni Şifre (Min. 6 Karakter)</label>
+                                            <input type="password" id="profile-new-password" placeholder="Yeni şifrenizi girin">
+                                            <span class="form-error">Şifre en az 6 karakter olmalıdır.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-confirm-password">Yeni Şifre Tekrarı</label>
+                                            <input type="password" id="profile-confirm-password" placeholder="Yeni şifrenizi tekrar girin">
+                                            <span class="form-error">Şifreler eşleşmiyor.</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Şifremi Güncelle</button>
+                                </form>
+                            </div>
+
+                            <!-- 2. Siparişlerim Sekmesi -->
+                            <div class="profile-tab-content" id="tab-orders">
+                                <h3>Önceki Siparişlerim</h3>
+                                <p class="tab-desc">Daha önce vermiş olduğunuz siparişlerin geçmişini ve durumunu bu ekrandan görebilirsiniz.</p>
+                                <div id="orders-list-container">
+                                    <!-- Dinamik sipariş listesi -->
+                                </div>
+                            </div>
+
+                            <!-- 3. Kart Ayarları Sekmesi -->
+                            <div class="profile-tab-content" id="tab-cards">
+                                <h3>Kayıtlı Kartlarım</h3>
+                                <p class="tab-desc">Gelecek alışverişlerinizde hızlı ödeme yapmak için kredi veya banka kartlarınızı kaydedebilirsiniz.</p>
+                                
+                                <div class="cards-grid" id="saved-cards-list">
+                                    <!-- Kayıtlı kartlar burada listelenecek -->
+                                </div>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                                <h3>Yeni Kart Ekle</h3>
+                                <form id="add-card-form" novalidate>
+                                    <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: 1rem;">
+                                        <div class="form-group" style="grid-column: span 3;">
+                                            <label for="card-holder">Kart Üzerindeki İsim</label>
+                                            <input type="text" id="card-holder" placeholder="Örn: Ahmet Yılmaz">
+                                            <span class="form-error">Lütfen kart sahibinin adını girin.</span>
+                                        </div>
+                                        <div class="form-group" style="grid-column: span 3;">
+                                            <label for="card-number">Kart Numarası</label>
+                                            <input type="text" id="card-number" placeholder="16 Haneli Kart Numarası" maxlength="16">
+                                            <span class="form-error">Geçerli bir kart numarası giriniz (16 hane).</span>
+                                        </div>
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="card-expiry">Son Kullanma Tarihi</label>
+                                            <input type="text" id="card-expiry" placeholder="AA/YY" maxlength="5">
+                                            <span class="form-error">AA/YY formatında giriniz.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-cvc">CVC/CVV</label>
+                                            <input type="text" id="card-cvc" placeholder="3 Hane" maxlength="3">
+                                            <span class="form-error">Geçersiz CVC.</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Kartı Kaydet</button>
+                                </form>
+                            </div>
+
+                            <!-- 4. Kayıtlı Adreslerim Sekmesi -->
+                            <div class="profile-tab-content" id="tab-addresses">
+                                <h3>Adres Defterim</h3>
+                                <p class="tab-desc">Siparişlerinizin gönderilmesini istediğiniz teslimat ve fatura adreslerinizi kaydedin.</p>
+                                
+                                <div class="addresses-grid" id="saved-addresses-list">
+                                    <!-- Kayıtlı adresler listelenecek -->
+                                </div>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                                <h3>Yeni Adres Ekle</h3>
+                                <form id="add-address-form" novalidate>
+                                    <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="address-title">Adres Başlığı</label>
+                                            <input type="text" id="address-title" placeholder="Örn: Ev Adresim, İş Yerim">
+                                            <span class="form-error">Adres başlığı giriniz.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address-city">Şehir</label>
+                                            <input type="text" id="address-city" placeholder="Örn: İstanbul">
+                                            <span class="form-error">Şehir giriniz.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address-district">İlçe</label>
+                                            <input type="text" id="address-district" placeholder="Örn: Kadıköy">
+                                            <span class="form-error">İlçe giriniz.</span>
+                                        </div>
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="address-phone">Telefon Numarası</label>
+                                            <input type="text" id="address-phone" placeholder="Örn: 05551234567">
+                                            <span class="form-error">Geçerli bir telefon numarası giriniz.</span>
+                                        </div>
+                                        <div class="form-group" style="grid-column: span 2;">
+                                            <label for="address-detail">Detaylı Adres</label>
+                                            <textarea id="address-detail" rows="3" placeholder="Mahalle, cadde, sokak, bina no, daire no..."></textarea>
+                                            <span class="form-error">Lütfen detaylı adresinizi yazınız.</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Adresi Kaydet</button>
+                                </form>
+                            </div>
+
+                            <!-- 5. İletişim / Destek Sekmesi -->
+                            <div class="profile-tab-content" id="tab-contact">
+                                <h3>Müşteri Hizmetleri ve Destek</h3>
+                                <p class="tab-desc">Bize her türlü soru, şikayet ve önerileriniz için ulaşabilir ya da doğrudan destek talebi oluşturabilirsiniz.</p>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                                    <div style="background-color: var(--section-bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                        <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700;">Telefon Destek</h4>
+                                        <p style="font-size: 0.9rem; color: var(--text-color); margin-bottom: 0.5rem;">Haftanın her günü 09:00 - 22:00 saatleri arasında çağrı merkezimize ulaşabilirsiniz.</p>
+                                        <a href="tel:08502225599" style="font-weight: 700; color: var(--secondary); text-decoration: none; font-size: 1.1rem;">0850 222 55 99</a>
+                                    </div>
+                                    <div style="background-color: var(--section-bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                        <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700;">E-posta Destek</h4>
+                                        <p style="font-size: 0.9rem; color: var(--text-color); margin-bottom: 0.5rem;">Sorularınız için bize e-posta yoluyla her zaman ulaşabilirsiniz.</p>
+                                        <a href="mailto:info@teknosa.com" style="font-weight: 700; color: var(--secondary); text-decoration: none; font-size: 1.1rem;">info@teknosa.com</a>
+                                    </div>
+                                </div>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                                <h3>Destek Talebi Oluştur</h3>
+                                <form id="support-ticket-form" novalidate>
+                                    <div class="form-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                                        <div class="form-group">
+                                            <label for="ticket-subject">Destek Konusu</label>
+                                            <input type="text" id="ticket-subject" placeholder="Örn: Sipariş Durumu, Kargo Gecikmesi, İade Koşulları">
+                                            <span class="form-error">Lütfen konuyu yazınız.</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ticket-message">Mesajınız</label>
+                                            <textarea id="ticket-message" rows="4" placeholder="Yardım almak istediğiniz konuyu detaylıca açıklayınız..."></textarea>
+                                            <span class="form-error">Lütfen mesajınızı yazınız (Min. 10 Karakter).</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Talep Gönder</button>
+                                </form>
+
+                                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+                                <h3>Geçmiş Destek Taleplerim</h3>
+                                <div id="my-tickets-container" style="margin-top: 1rem;">
+                                    <!-- Dinamik destek talepleri listelenecek -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 5. FOOTER ALANI -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <!-- Sütun 1: Marka ve Sosyal Medya -->
+                <div class="footer-column footer-brand" id="footer-col-brand">
+                    <svg viewBox="0 0 160 35" class="logo-icon"
+                        style="width: 130px; height: 35px; margin-bottom: 1rem;">
+                        <text x="0" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="24"
+                            fill="#FFFFFF">TEKNO<tspan fill="#FF6000">SA</tspan></text>
+                        <rect x="135" y="6" width="6" height="6" fill="#FF6000" rx="1" />
+                    </svg>
+                    <p class="footer-desc">Teknosa, Türkiye'nin lider teknoloji perakendecisi olarak en yeni elektronik
+                        ürünleri güler yüzlü hizmet ve benzersiz müşteri deneyimiyle sunmaktadır.</p>
+                    <div class="footer-socials">
+                        <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" class="social-icon" aria-label="Twitter" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/" class="social-icon" aria-label="Instagram" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sütun 2: Hızlı Linkler -->
+                <div class="footer-column footer-links" id="footer-col-links">
+                    <h3>Hızlı Linkler</h3>
+                    <a href="index.html" id="foot-link-home">Ana Sayfa</a>
+                    <a href="hakkimizda.html" id="foot-link-about">Hakkımızda</a>
+                    <a href="urunler.html" id="foot-link-products">Ürünler / Hizmetler</a>
+                    <a href="kurumsal.html" id="foot-link-corporate">Kurumsal</a>
+                    <a href="iletisim.html" id="foot-link-contact">İletişim</a>
+                </div>
+
+                <!-- Sütun 3: Kategoriler -->
+                <div class="footer-column footer-links" id="footer-col-cats">
+                    <h3>Kategoriler</h3>
+                    <a href="urunler.html#category=telefon" id="foot-cat-phones">Telefon & Aksesuar</a>
+                    <a href="urunler.html#category=bilgisayar" id="foot-cat-laptops">Bilgisayar & Oyun</a>
+                    <a href="urunler.html#category=tv-ses" id="foot-cat-tvs">TV & Görüntüleme</a>
+                    <a href="urunler.html#category=beyaz-esya" id="foot-cat-appliances">Beyaz Eşya & Ev</a>
+                </div>
+
+                <!-- Sütun 4: İletişim Bilgileri -->
+                <div class="footer-column footer-contact" id="footer-col-contact">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="contact-item" id="foot-contact-phone">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        <span>0850 222 55 99</span>
+                    </div>
+                    <div class="contact-item" id="foot-contact-email">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span>info@teknosa.com</span>
+                    </div>
+                    <div class="contact-item" id="foot-contact-address">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        <span>Teknosa Plaza, CarrefourSA Sitesi, İçerenköy, Ataşehir / İstanbul</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alt Bilgi ve Copyright -->
+            <div class="container footer-bottom">
+                <p>&copy; 2026 Teknosa. Tüm hakları saklıdır. Bu site eğitim amaçlı bir ders projesidir.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" id="foot-privacy">Gizlilik Politikası</a>
+                    <a href="#" id="foot-terms">Kullanım Koşulları</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 🛒 Alışveriş Sepeti Çekmecesi (Cart Drawer) -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>Alışveriş Sepetim</h3>
+                <button class="cart-drawer-close" id="cart-drawer-close-btn" aria-label="Sepeti Kapat">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="cart-items-container" id="cart-items-container">
+                <!-- Dinamik olarak JS tarafından doldurulacak -->
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="cart-total-row">
+                    <span>Toplam:</span>
+                    <span class="cart-total-price" id="cart-total-price">0 TL</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" id="checkout-btn">Alışverişi Tamamla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔍 Ürün Detay Modalı (Product Detail Modal) -->
+    <div class="modal-overlay" id="product-detail-modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%; padding: 2.5rem; position: relative;">
+            <button class="cart-drawer-close" id="product-detail-close-btn"
+                style="position: absolute; top: 15px; right: 15px;" aria-label="Kapat">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </button>
+            <div id="product-detail-content">
+                <!-- Dinamik olarak doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 💬 Toast Bildirim Alanı (Toast Notifications Container) -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- JS Dosyaları -->
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
