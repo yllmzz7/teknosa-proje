@@ -4,26 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     let usersDb = JSON.parse(localStorage.getItem('teknosa_users')) || [];
     
-    // Seed database with a default test user if it doesn't exist
-    const hasTestUser = usersDb.some(u => u.email.toLowerCase() === "ahmet@mail.com");
-    if (!hasTestUser) {
+    // Seed database with a default test user — always ensure correct password
+    const testUserIdx = usersDb.findIndex(u => u.email.toLowerCase() === "ahmet@mail.com");
+    if (testUserIdx === -1) {
         usersDb.push({
             fullName: "Ahmet Yılmaz",
             email: "ahmet@mail.com",
             password: "password123",
             role: "user"
         });
+    } else {
+        // Ensure password is always correct (fix corrupted data)
+        usersDb[testUserIdx].password = "password123";
+        usersDb[testUserIdx].role = usersDb[testUserIdx].role || "user";
     }
 
-    // Seed database with admin user if it doesn't exist
-    const hasAdmin = usersDb.some(u => u.email.toLowerCase() === "admin@teknosa.com");
-    if (!hasAdmin) {
+    // Seed database with admin user — always ensure correct password & role
+    const adminIdx = usersDb.findIndex(u => u.email.toLowerCase() === "admin@teknosa.com");
+    if (adminIdx === -1) {
         usersDb.push({
             fullName: "Teknosa Yönetici",
             email: "admin@teknosa.com",
             password: "admin123",
             role: "admin"
         });
+    } else {
+        // Always keep admin password and role correct (fix corrupted data)
+        usersDb[adminIdx].password = "admin123";
+        usersDb[adminIdx].role = "admin";
+        usersDb[adminIdx].fullName = "Teknosa Yönetici";
     }
 
     localStorage.setItem('teknosa_users', JSON.stringify(usersDb));
